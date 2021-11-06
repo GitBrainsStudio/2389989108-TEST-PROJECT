@@ -1,0 +1,157 @@
+
+
+
+
+<ng-container *ngIf="course">
+
+
+    <h4 class="mt-3">Name</h4>
+
+    <div class="row mt-1">
+        <div class="col-12 pr-1">
+            <input [(ngModel)]="course.name" (ngModelChange)="modelChanged()">
+        </div>
+    </div>
+
+
+    <h4 class="mt-3">Author</h4>
+
+    <div class="row mt-1">
+        <div class="col-6 pr-1">
+            <input [(ngModel)]="course.author.firstName" (ngModelChange)="modelChanged()">
+        </div>
+        <div class="col-6 pr-1">
+            <input [(ngModel)]="course.author.lastName" (ngModelChange)="modelChanged()">
+        </div>
+    </div>
+
+    <h4 class="mt-3">Contents</h4>
+    <div class="row mt-1" *ngFor="let content of course.contents; let contentIndex = index;">
+        <div class="col-5 pr-1">
+            <input [(ngModel)]="content.name" (ngModelChange)="modelChanged()">
+        </div>
+        <div class="col-5 pr-1" >
+            <select [compareWith]="compareFn" [(ngModel)]="content.type" (ngModelChange)="modelChanged()">
+                <option *ngFor="let contentItemType of contentsItemTypes" [value]="contentItemType">
+                    {{ contentItemType }}
+                </option>
+            </select>
+        </div>
+        <div class="col-2">
+            <button style="width: 100%;" (click)="removeContentsItem(contentIndex)">remove</button>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-5 pr-1">
+            <input [(ngModel)]="newContent.name" (ngModelChange)="modelChanged()">
+        </div>
+        <div class="col-5 pr-1">
+            <select [compareWith]="compareFn" [(ngModel)]="newContent.type" (ngModelChange)="modelChanged()">
+                <option *ngFor="let contentItemType of contentsItemTypes" [value]="contentItemType">
+                    {{ contentItemType }}
+                </option>
+            </select>
+        </div>
+        <div class="col-2">
+            <button style="width: 100%;" (click)="addContentsItem()">add</button>
+        </div>
+    </div>
+
+    <h4 class="mt-3">Duration</h4>
+    <div class="row mt-1" >
+        <div class="col-6 pr-1">
+            <input [(ngModel)]="newDuration.value" (ngModelChange)="modelChanged()">
+        </div>
+        <div class="col-6 pr-1">
+              <select [compareWith]="compareFn" [(ngModel)]="newDuration.unit" (ngModelChange)="modelChanged()">
+                <option *ngFor="let durationUnit of durationUnits" [value]="durationUnit">
+                    {{ durationUnit }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <h4 class="mt-3">Plans</h4>
+    <div class="row mt-1"  *ngFor="let plan of course.plans; let planIndex = index;">
+        <div class="col-4 pr-1">
+            <input [(ngModel)]="plan.name" (ngModelChange)="modelChanged()">
+        </div>
+        <div class="col-4 pr-1">
+            <input [(ngModel)]="plan.price" (ngModelChange)="modelChanged()">
+        </div>
+        <div class="col-3" style="border-radius: 5px; border: 1px solid gray; padding: 10px">
+            <span style="font-size: 12px;">Adavantages</span>
+            <div class="row mb-1 mt-2" *ngFor="let advantage of plan.advantages; let advantageIndex = index;">
+                <div class="col-5 pr-1">
+                    <input [(ngModel)]="advantage.available" (ngModelChange)="modelChanged()">
+                </div>
+                <div class="col-5 pr-1">
+                    <input [(ngModel)]="advantage.title" (ngModelChange)="modelChanged()">
+                </div>
+                <div class="col-2">
+                    <button style="width: 100%;" (click)="removeAdvantageFromPlan(plan, advantageIndex)" >remove</button>
+                </div>
+            </div>
+            <div class="row mb-1" *ngIf="plan.newAdvantage">
+                <div class="col-5 pr-1">
+                    <input [(ngModel)]="plan.newAdvantage.available" >
+                </div>
+                <div class="col-5 pr-1">
+                    <input [(ngModel)]="plan.newAdvantage.title">
+                </div>
+                <div class="col-2">
+                    <button style="width: 100%;" (click)="addAdvantageInPlan(plan)" (ngModelChange)="modelChanged()">add</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+            <div class="row d-flex justify-content-center align-items-center" style="height: 100%;">
+                <button (click)="removePlane(planIndex)" > remove </button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="row mt-1"  >
+        <div class="col-4 pr-1">
+            <input [(ngModel)]="newPlan.name" >
+        </div>
+        <div class="col-4 pr-1">
+            <input [(ngModel)]="newPlan.price">
+        </div>
+        <div class="col-3" style="border-radius: 5px; border: 1px solid gray; padding: 10px">
+            <span style="font-size: 12px;">Adavantages</span>
+            <div class="row mb-1 mt-2" *ngFor="let advantage of newPlan.advantages; let advantageIndex = index;">
+                <div class="col-5 pr-1">
+                    <input [(ngModel)]="advantage.available">
+                </div>
+                <div class="col-5 pr-1">
+                    <input [(ngModel)]="advantage.title">
+                </div>
+                <div class="col-2">
+                    <button style="width: 100%;"  (click)="removeAdvantageFromPlan(newPlan, advantageIndex)">remove</button>
+                </div>
+            </div>
+            <div class="row mb-1" *ngIf="newPlan.newAdvantage">
+                <div class="col-5 pr-1">
+                    <input [(ngModel)]="newPlan.newAdvantage.available">
+                </div>
+                <div class="col-5 pr-1">
+                    <input [(ngModel)]="newPlan.newAdvantage.title">
+                </div>
+                <div class="col-2">
+                    <button style="width: 100%;" (click)="addAdvantageInNewPlan(newPlan)" >add</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+            <div class="row d-flex justify-content-center align-items-center" style="height: 100%;">
+                <button (click)="addPlane()"> add </button>
+            </div>
+            
+        </div>
+    </div>
+
+    
+</ng-container>
+

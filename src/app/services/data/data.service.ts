@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { ContentsItemType } from 'src/app/models/contents-item-type.enum';
 import { Course } from 'src/app/models/course.model';
 import { DurationUnit } from 'src/app/models/duration-unit.enum';
@@ -37,6 +37,11 @@ export class DataService {
               title: "Second advantage"
             },
           ],
+          newAdvantage : 
+          {
+            available: false,
+            title: "New advantage"
+          },
         },
       ],
       duration: { value: 1, unit: DurationUnit.day },
@@ -57,6 +62,7 @@ export class DataService {
   get courses$(): Observable<Course[]> {
     return this._courses$.pipe(map(courses => Array.from(courses.values())));
   }
+
 
   /**
    * Create new course

@@ -1,0 +1,12 @@
+
+<main>
+    <ng-container *ngIf="pageService.course">
+        <div class="container p-3">
+            <h2>Course edit</h2>
+            <app-course-form [course]="pageService.course" (courseFormUpdated)="pageService.courseFormUpdated($event)"></app-course-form>
+            <hr>
+            <button [routerLink]="['/courses']">back</button>
+        </div>
+    </ng-container>
+</main>
+<app-footer></app-footer>

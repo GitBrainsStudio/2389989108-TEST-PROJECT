@@ -16,7 +16,21 @@ export interface Course {
     duration?:Duration;
 }
 
+/* 
+function emptyCourse(): Course {
+    return {
+        id:'',
+        name:'',
+        description:'',
+        contents:[],
+        plans:[],
+        sales?:undefined,
+        author:undefined,
+        coauthors?:[]];
+        duration?:Duration;
+    }
 
+} */
 
 
 

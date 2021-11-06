@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/bootstrap-grid.css';
+
+:root
+{
+    --footer-height: 30px;
+    --font-sans-serif: "PT Sans",sans-serif;
+}
+
+main
+{
+    min-height: calc(100vh - var(--footer-height));
+}
+
+body
+{
+    margin: 0;
+    font-family: var(--font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: ghostwhite;
+}
+
+.card
+{
+    max-width: 300px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    transition: .5s;
+}
+
+.card:hover
+{
+    cursor: pointer;
+    background-color: rgba(141, 12, 29, 0.774);
+    transition: .5s;
+}
+
+h1,h2,h3,h4,h5,h6,p
+{
+    margin: 0;
+}
+
+input, select
+{
+    padding: .6em .7em;
+    border: 1px solid rgba(51, 51, 51, 0.349);
+    border-radius: 3px;
+    outline: 0;
+    width: 100%;
+}
+
+button
+{
+    padding: .6em .7em;
+    border: 1px solid rgba(51, 51, 51, 0.349);
+    border-radius: 3px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: .5s;
+}
+
+button:hover
+{
+    background-color: orange;
+    transition: .5s;
+}
+
+.horizontal-ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.horizontal-ul li
+{
+    display: inline;
+}
+
+a
+{
+    text-decoration: none;
+    color: #333;
+    transition: .8s;
+}
+
+a:hover
+{
+    color: orange;
+    transition: .8s;
+}
