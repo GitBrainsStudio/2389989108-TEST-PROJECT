@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { Course } from "src/app/models/course.model";
-import { DataService } from "src/app/services/data/data.service";
+import { Course } from '../../../models/course.model'
+import { DataService } from '../../../services/data/data.service';
 
 @Injectable()
 export class CourseEditPageService

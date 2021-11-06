@@ -1,12 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ContentsItemType } from 'src/app/models/contents-item-type.enum';
-import { ContentsItem } from 'src/app/models/contents-item.model';
-import { Course } from 'src/app/models/course.model';
-import { DurationUnit } from 'src/app/models/duration-unit.enum';
-import { Duration } from 'src/app/models/duration.model';
-import { PlanAdvantage } from 'src/app/models/plan-advantage.model';
-import { Plan } from 'src/app/models/plan.model';
+import { Component, EventEmitter, Input, Output, } from '@angular/core';
+import { ContentsItemType } from '../../../../models/contents-item-type.enum'
+import { ContentsItem } from '../../../../models/contents-item.model';
+import { Course } from '../../../../models/course.model';
+import { DurationUnit } from '../../../../models/duration-unit.enum';
+import { Duration } from '../../../../models/duration.model';
+import { Plan } from '../../../../models/plan.model'
 
 @Component({
   selector: 'app-course-form',
