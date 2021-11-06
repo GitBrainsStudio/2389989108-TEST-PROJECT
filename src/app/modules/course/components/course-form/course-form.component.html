@@ -73,13 +73,13 @@
 
     <h4 class="mt-3">Plans</h4>
     <div class="row mt-1"  *ngFor="let plan of course.plans; let planIndex = index;">
-        <div class="col-4 pr-1">
+        <div class="col-2 pr-1">
             <input [(ngModel)]="plan.name" (ngModelChange)="modelChanged()">
         </div>
-        <div class="col-4 pr-1">
+        <div class="col-2 pr-1">
             <input [(ngModel)]="plan.price" (ngModelChange)="modelChanged()">
         </div>
-        <div class="col-3" style="border-radius: 5px; border: 1px solid gray; padding: 10px">
+        <div class="col-8" style="border-radius: 5px; border: 1px solid gray; padding: 10px">
             <span style="font-size: 12px;">Adavantages</span>
             <div class="row mb-1 mt-2" *ngFor="let advantage of plan.advantages; let advantageIndex = index;">
                 <div class="col-5 pr-1">
@@ -113,13 +113,13 @@
     </div>
 
     <div class="row mt-1"  >
-        <div class="col-4 pr-1">
+        <div class="col-2 pr-1">
             <input [(ngModel)]="newPlan.name" >
         </div>
-        <div class="col-4 pr-1">
+        <div class="col-2 pr-1">
             <input [(ngModel)]="newPlan.price">
         </div>
-        <div class="col-3" style="border-radius: 5px; border: 1px solid gray; padding: 10px">
+        <div class="col-8" style="border-radius: 5px; border: 1px solid gray; padding: 10px">
             <span style="font-size: 12px;">Adavantages</span>
             <div class="row mb-1 mt-2" *ngFor="let advantage of newPlan.advantages; let advantageIndex = index;">
                 <div class="col-5 pr-1">
