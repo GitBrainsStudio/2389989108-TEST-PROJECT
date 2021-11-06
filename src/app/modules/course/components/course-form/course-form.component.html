@@ -38,7 +38,7 @@
             </select>
         </div>
         <div class="col-2">
-            <button style="width: 100%;" (click)="removeContentsItem(contentIndex)">remove</button>
+            <button style="width: 100%;" (click)="removeContentsItem(contentIndex)">-</button>
         </div>
     </div>
     <div class="row mt-1">
@@ -53,7 +53,7 @@
             </select>
         </div>
         <div class="col-2">
-            <button style="width: 100%;" (click)="addContentsItem()">add</button>
+            <button style="width: 100%;" (click)="addContentsItem()">+</button>
         </div>
     </div>
 
@@ -89,7 +89,7 @@
                     <input [(ngModel)]="advantage.title" (ngModelChange)="modelChanged()">
                 </div>
                 <div class="col-2">
-                    <button style="width: 100%;" (click)="removeAdvantageFromPlan(plan, advantageIndex)" >remove</button>
+                    <button style="width: 100%;" (click)="removeAdvantageFromPlan(plan, advantageIndex)" >-</button>
                 </div>
             </div>
             <div class="row mb-1" *ngIf="plan.newAdvantage">
@@ -100,7 +100,7 @@
                     <input [(ngModel)]="plan.newAdvantage.title">
                 </div>
                 <div class="col-2">
-                    <button style="width: 100%;" (click)="addAdvantageInPlan(plan)" (ngModelChange)="modelChanged()">add</button>
+                    <button style="width: 100%;" (click)="addAdvantageInPlan(plan)" (ngModelChange)="modelChanged()">+</button>
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
                     <input [(ngModel)]="advantage.title">
                 </div>
                 <div class="col-2">
-                    <button style="width: 100%;"  (click)="removeAdvantageFromPlan(newPlan, advantageIndex)">remove</button>
+                    <button style="width: 100%;"  (click)="removeAdvantageFromPlan(newPlan, advantageIndex)">-</button>
                 </div>
             </div>
             <div class="row mb-1" *ngIf="newPlan.newAdvantage">
@@ -140,13 +140,13 @@
                     <input [(ngModel)]="newPlan.newAdvantage.title">
                 </div>
                 <div class="col-2">
-                    <button style="width: 100%;" (click)="addAdvantageInNewPlan(newPlan)" >add</button>
+                    <button style="width: 100%;" (click)="addAdvantageInNewPlan(newPlan)" >+</button>
                 </div>
             </div>
         </div>
         <div class="col-1">
             <div class="row d-flex justify-content-center align-items-center" style="height: 100%;">
-                <button (click)="addPlane()"> add </button>
+                <button (click)="addPlane()"> + </button>
             </div>
             
         </div>
