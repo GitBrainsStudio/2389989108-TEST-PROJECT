@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+
 import { Course } from '../../../models/course.model'
 import { DataService } from '../../../services/data/data.service';
 
@@ -39,7 +40,7 @@ export class CourseEditPageService
     {
         if (course.id)
         {
-            this.dataService.updateCourse(course?.id, course).then((v) => 'Course updated & saved!')
+            this.dataService.updateCourse(course?.id, course).then((v) => console.log('Course updated & saved!'))
         } 
     }
 
