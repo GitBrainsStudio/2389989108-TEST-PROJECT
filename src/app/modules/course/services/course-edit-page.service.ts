@@ -39,9 +39,7 @@ export class CourseEditPageService
     {
         if (course.id)
         {
-            console.log('course updated')
-            /* this.dataService.updateCourse(course?.id, course);
-            console.log('course updated') */
+            this.dataService.updateCourse(course?.id, course).then((v) => 'Course updated & saved!')
         } 
     }
 
